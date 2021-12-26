@@ -13,6 +13,7 @@ module.exports = {
         rejectUnauthorized: false,
       },
     },
+    raw: true,
   },
 
   production: {
@@ -28,5 +29,6 @@ module.exports = {
         rejectUnauthorized: false,
       },
     },
+    raw: true,
   },
 };

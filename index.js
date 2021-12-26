@@ -1,17 +1,17 @@
 const express = require("express");
-const { Pool, Client } = require("pg");
 const connectDb = require("./connectDB/connect");
-const { account } = require("./models");
+const cors = require("cors");
 const app = express();
+const router = require("./routes/index");
+const bodyParser = require("body-parser");
 require("dotenv").config();
 const PORT = process.env.PORT || 2000;
+app.use(cors());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 connectDb();
-app.get("/", async (req, res) => {
-  let result = await account.findAll();
-  return res.json({
-    result,
-  });
-});
+router(app);
+
 app.listen(PORT, () => {
   console.log("App listening on link http://localhost:" + PORT);
 });

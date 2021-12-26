@@ -24,6 +24,7 @@ sequelize = new Sequelize(
       },
     },
     logging: false,
+    raw: true,
   }
 );
 fs.readdirSync(__dirname)
